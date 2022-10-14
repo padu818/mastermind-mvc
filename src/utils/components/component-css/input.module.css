@@ -1,0 +1,24 @@
+.input {
+  background-color: var(--on-primary-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: var(--pink-style);
+  color: var(--purple-style);
+}
+
+.colorInput{
+  color: var(--purple-style);
+}
+
+.vline{
+  background-color:var(--on-primary-color);
+  height: auto;
+  width: auto;
+  padding: 15px;
+  display: inline-block;
+  margin: 4px 2px;
+  
+ }

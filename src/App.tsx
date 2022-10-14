@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, useEffect, useState } from "react";
+import styles from "./app.module.css";
+import { Header } from "./components/Header";
+import { Board } from "./components/Board";
+import { startGameController } from "./controller/StartGameController";
+import { YesNoDialogPlay } from "./components/YesNoDialogPlay";
 
-function App() {
+export const App: FC = () => {
+  const startController: startGameController =
+    startGameController.getInstance();
+
+  const [isEndGame, setIsEndGame] = useState(false);
+
+  useEffect(() => {
+    setIsEndGame(startController.isEndGame());
+  }, [startController.isEndGame()]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <div className={styles.mastermind}>
+        <Header />
+        {!isEndGame ? (
+          <Board condition={isEndGame} setCondition={setIsEndGame} />
+        ) : (
+          <YesNoDialogPlay
+            value={startController.getResult()}
+          ></YesNoDialogPlay>
+        )}
+      </div>
     </div>
   );
-}
-
-export default App;
+};

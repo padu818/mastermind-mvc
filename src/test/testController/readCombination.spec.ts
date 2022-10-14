@@ -1,0 +1,43 @@
+import { CombinationBreakerController } from "../../controller/CombinationBreakerController";
+
+describe("readProposeCombination", () => {
+  it("should be true", () => {
+    const controllerCombination = CombinationBreakerController.getInstance();
+
+    const result = controllerCombination.validateInputCombination("rgyb");
+
+    expect(result).toEqual(true);
+  });
+
+  it("should be false", () => {
+    const controllerCombination = CombinationBreakerController.getInstance();
+
+    const result = controllerCombination.validateInputCombination("r");
+
+    expect(result).toEqual(false);
+  });
+
+  it("should be false", () => {
+    const controllerCombination = CombinationBreakerController.getInstance();
+
+    const result = controllerCombination.validateInputCombination("rgyy");
+
+    expect(result).toEqual(false);
+  });
+
+  it("should be false", () => {
+    const controllerCombination = CombinationBreakerController.getInstance();
+
+    const result = controllerCombination.validateInputCombination("rpyb");
+
+    expect(result).toEqual(false);
+  });
+
+  it("should get string of 1 element", () => {
+    const controllerCombination = CombinationBreakerController.getInstance();
+
+    const result = controllerCombination.validateInputCombination("rgyy");
+
+    expect(result).toEqual(false);
+  });
+});

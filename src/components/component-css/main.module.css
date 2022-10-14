@@ -1,0 +1,8 @@
+.main {
+  font-size: var(--xs);
+  background: var(--style-color);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
