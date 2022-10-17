@@ -1,12 +1,13 @@
 import { ColorID, TokenGuess } from "../domain/utils/constants";
-import { CombinationView } from "../components/view/Interfaces";
-import { SecretCombination } from "../domain/model/SecretCombination";
-import { movementService } from "../domain/services/Movement.service";
+import { CombinationView, MovementView } from "../components/view/Interfaces";
+import { Game } from "../domain/model/Game";
+import { Movement } from "../domain/model/Movement";
 
 export class MoveController {
-  private static _instance: MoveController;
-  public static getInstance() {
-    return this._instance || (this._instance = new MoveController());
+  game: Game;
+
+  constructor(game: Game) {
+    this.game = game;
   }
 
   addCombination(combination: String): CombinationView {
@@ -19,16 +20,16 @@ export class MoveController {
     };
     return newCombination;
   }
-  createSecretCombination(): CombinationView {
-    const secretCombination: SecretCombination =
-      movementService.createSecretCombination();
-    let newTokens: TokenGuess[] = [];
-    for (let i = 0; i < secretCombination.length(); i++) {
-      newTokens.push(secretCombination.toString()[i] as ColorID);
+  listCombinationBreaker() {
+    const listMoveView: MovementView[] = [];
+    for (let i = 0; i <= this.game.getAttempt(); i++) {
+      const move: Movement = this.game.getMovement(i);
+      const movementView: MovementView = {
+        combination: this.addCombination(move.getCombination()),
+        result: move.getBlackAndWhite(),
+      };
+      listMoveView.push(movementView);
     }
-    let newCombination: CombinationView = {
-      tokens: newTokens,
-    };
-    return newCombination;
+    return listMoveView;
   }
 }

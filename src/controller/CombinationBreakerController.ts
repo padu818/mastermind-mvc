@@ -1,22 +1,19 @@
 import { Combination } from "../domain/model/Combination";
+import { Game } from "../domain/model/Game";
 import { combinationService } from "../domain/services/Combination.service";
+import { gameService } from "../domain/services/Game.service";
 import { ErrorCombination } from "../domain/utils/ErrorText";
-import { StartGameController } from "./StartGameController";
 
 
 export class CombinationBreakerController {
   isCorrect = false;
   errorText: string[] = [];
-
-  private static _instance: CombinationBreakerController;
+  game: Game;
   
-  constructor() {}
-  
-  public static getInstance()
-  {
-    return this._instance || (this._instance = new CombinationBreakerController());
+  constructor(game: Game) {
+    this.game = game;
   }
-
+  
   getIsCorrect() {
     return this.isCorrect;
   }
@@ -41,9 +38,7 @@ export class CombinationBreakerController {
   putCombinationBreaker(tokens: string) {
     const combination: Combination =
       combinationService.createCombination(tokens);
-    const gameController: StartGameController =
-      StartGameController.getInstance();
-    gameController.addCombinationBreaker(combination);
+      gameService.addCombinationBreaker(combination,this.game);
   }
 
   setErrorText(arrayBoolean: boolean[]) {
