@@ -6,9 +6,9 @@ import { gameService } from "../domain/services/Game.service";
 import { MoveController } from "./MoveController";
 
 
-export class startGameController {
+export class StartGameController {
   private game: Game;
-  private static _instance: startGameController;
+  private static _instance: StartGameController;
   constructor() {
     this.game = gameService.createGame(); 
     console.log(this.game.getSecretCombination());
@@ -16,7 +16,7 @@ export class startGameController {
   
   public static getInstance()
   {
-    return this._instance || (this._instance = new startGameController());
+    return this._instance || (this._instance = new StartGameController());
   }
 
   getAttempt(){
@@ -25,7 +25,7 @@ export class startGameController {
 
 
   isEndGame(){
-    if(this.game.getAttempt() >= 0){
+    if(this.game.getAttempt() > 0){
       return this.game.isEndGame();
     }
     else{
@@ -37,7 +37,7 @@ export class startGameController {
     let isWinner:boolean = this.game.isWinner();
     let stringResult = "";
     if(isWinner){
-      stringResult = "Has acertado a la combinacion secreta "+this.game.getSecretCombination() + " en "+this.game.getAttempt()+ " intentos";
+      stringResult = "Has acertado a la combinacion secreta "+this.game.getSecretCombination() + " en "+(this.game.getAttempt()+1)+ " intentos";
     }
     else{
       stringResult = "No has acertado :(";

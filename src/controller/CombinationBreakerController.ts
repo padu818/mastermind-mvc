@@ -1,7 +1,7 @@
 import { Combination } from "../domain/model/Combination";
 import { combinationService } from "../domain/services/Combination.service";
 import { ErrorCombination } from "../domain/utils/ErrorText";
-import { startGameController } from "./StartGameController";
+import { StartGameController } from "./StartGameController";
 
 
 export class CombinationBreakerController {
@@ -41,8 +41,8 @@ export class CombinationBreakerController {
   putCombinationBreaker(tokens: string) {
     const combination: Combination =
       combinationService.createCombination(tokens);
-    const gameController: startGameController =
-      startGameController.getInstance();
+    const gameController: StartGameController =
+      StartGameController.getInstance();
     gameController.addCombinationBreaker(combination);
   }
 

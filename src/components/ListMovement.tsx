@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { TokenGuess } from "../domain/utils/constants";
-import { startGameController } from "../controller/StartGameController";
+import { StartGameController } from "../controller/StartGameController";
 import { Circle } from "./Cicle";
 import { BlackAndWhite } from "./BlackAndWhite";
 import { BooleanParameter, MovementView } from "./view/Interfaces";
@@ -9,8 +9,8 @@ import { BorderSeparator } from "../utils/components/BorderSeparator";
 export const ListMovement: FC<BooleanParameter> = ({ condition }) => {
   const [listMoveView, setListMoveView] = useState<MovementView[]>([]);
 
-  const startController: startGameController =
-    startGameController.getInstance();
+  const startController: StartGameController =
+    StartGameController.getInstance();
 
   const PrintListMovement = () => {
     if (listMoveView.length > 0) {

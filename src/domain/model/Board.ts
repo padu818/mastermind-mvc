@@ -11,13 +11,13 @@ export class Board {
   }
 
   isTheBoardFull(): boolean{
-    return this.listMovement.length > this.BOARD_FULL;
+    return this.listMovement.length >= this.BOARD_FULL;
   }
   addMovement(proposeCombination: Combination) {
     this.listMovement.push(new Movement( this.secretCombination.getCombination(),proposeCombination));
   }
   isEndGame(): boolean{
-      return this.isWinner() || this.isTheBoardFull();
+      return this.isTheBoardFull() || this.isWinner() ;
   }
   getAttempt(): number{
       return this.listMovement.length-1;
