@@ -7,6 +7,17 @@ export const gameService = {
     game.addMovement(proposeCombination);
   },
   createGame(){
-    return new Game();
+    return Singleton_game.getInstance();
   }
+}
+
+
+class Singleton_game {
+  private static _instance: Game;
+
+  public static getInstance()
+  {
+    return this._instance || (this._instance = new Game());
+  }
+
 }

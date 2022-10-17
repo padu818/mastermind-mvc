@@ -1,14 +1,15 @@
 import "reflect-metadata";
+import { CreatorController } from "../../controller/CreatorController";
 import { MoveController } from "../../controller/MoveController"
 
 
 describe('readProposeCombination', () => {
   it('should be true', () => {
-    const moveController =  MoveController.getInstance();
-    const secretCombination = moveController.createSecretCombination();
-    console.log(secretCombination.tokens);
+    const moveController =  CreatorController.createMoveController();
+    const secretCombination = moveController.game.getSecretCombination();
+    console.log(secretCombination);
 
-    const result = secretCombination.tokens.length > 0;
+    const result = secretCombination.length > 0;
 
     expect(result).toEqual(true);
   })

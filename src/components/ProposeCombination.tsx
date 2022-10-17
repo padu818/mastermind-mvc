@@ -4,6 +4,7 @@ import { ProposeCombinationParameter } from "./view/Interfaces";
 import { ErrorCombination } from "./Error";
 import styles from '../utils/components/component-css/input.module.css';
 import { Button, TextField } from "@mui/material";
+import { CreatorController } from "../controller/CreatorController";
 
 export const ProposeCombination: FC<ProposeCombinationParameter> = ({
   eventBoolean,
@@ -13,8 +14,7 @@ export const ProposeCombination: FC<ProposeCombinationParameter> = ({
 }) => {
   const [errorText, setErrorText] = useState<string[]>([]);
   const [eventError, setEventError] = useState(true);
-  const combinationBreakerController: CombinationBreakerController =
-    CombinationBreakerController.getInstance();
+  const combinationBreakerController: CombinationBreakerController = CreatorController.createCombinationBreakerController();
 
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

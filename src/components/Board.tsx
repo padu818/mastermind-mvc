@@ -5,13 +5,14 @@ import styles from "./component-css/main.module.css";
 import { Points } from "./Points";
 import { ProposeCombination } from "./ProposeCombination";
 import { BooleanParameter } from "./view/Interfaces";
+import { CreatorController } from "../controller/CreatorController";
 
 
 export const Board: FC<BooleanParameter> = ({setCondition}) => {
   const [eventChange, setEventChange] = useState(true);
   const [makeBreakerCombination, setMakeBreakerCombination] = useState<string>("");
 
-  const startController : StartGameController = StartGameController.getInstance();
+  const startController : StartGameController = CreatorController.createStartGameController();
   useEffect(() =>{
     setCondition(startController.isEndGame());
   },[eventChange])

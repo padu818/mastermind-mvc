@@ -1,8 +1,9 @@
 import { CombinationBreakerController } from "../../controller/CombinationBreakerController";
+import { CreatorController } from "../../controller/CreatorController";
 
 describe("readProposeCombination", () => {
   it("should be true", () => {
-    const controllerCombination = CombinationBreakerController.getInstance();
+    const controllerCombination =CreatorController.createCombinationBreakerController();
 
     const result = controllerCombination.validateInputCombination("rgyb");
 
@@ -10,7 +11,7 @@ describe("readProposeCombination", () => {
   });
 
   it("should be false", () => {
-    const controllerCombination = CombinationBreakerController.getInstance();
+    const controllerCombination = CreatorController.createCombinationBreakerController();
 
     const result = controllerCombination.validateInputCombination("r");
 
@@ -18,7 +19,7 @@ describe("readProposeCombination", () => {
   });
 
   it("should be false", () => {
-    const controllerCombination = CombinationBreakerController.getInstance();
+    const controllerCombination = CreatorController.createCombinationBreakerController();
 
     const result = controllerCombination.validateInputCombination("rgyy");
 
@@ -26,7 +27,7 @@ describe("readProposeCombination", () => {
   });
 
   it("should be false", () => {
-    const controllerCombination = CombinationBreakerController.getInstance();
+    const controllerCombination = CreatorController.createCombinationBreakerController();
 
     const result = controllerCombination.validateInputCombination("rpyb");
 
@@ -34,7 +35,7 @@ describe("readProposeCombination", () => {
   });
 
   it("should get string of 1 element", () => {
-    const controllerCombination = CombinationBreakerController.getInstance();
+    const controllerCombination = CreatorController.createCombinationBreakerController();
 
     const result = controllerCombination.validateInputCombination("rgyy");
 
