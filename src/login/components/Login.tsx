@@ -1,27 +1,27 @@
 import { FC } from "react";
-import { CreatorController } from "../controller/CreatorController";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField/TextField";
 import Button from "@mui/material/Button/Button";
-import { BooleanParameter } from "./view/Interfaces";
 import { LoginController } from "../controller/LoginController";
+import { BooleanParameter } from "../utils/interfaces";
+import { CreatorController } from "../controller/CreatorController";
 
-export const Login: FC<BooleanParameter> = ({condition, setCondition}) => {
+export const Login: FC<BooleanParameter> = ({ condition, setCondition }) => {
   const loginController: LoginController =
     CreatorController.createLoginController();
 
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setCondition(!condition);
-  }
+  };
 
   const Error = () => {
     return (
       <>
-      <h3>Error</h3>
+        <h3>Error</h3>
       </>
-    )
-  }
+    );
+  };
 
   return (
     <div>
@@ -47,14 +47,16 @@ export const Login: FC<BooleanParameter> = ({condition, setCondition}) => {
             variant="standard"
             required={true}
           />
-           <Button variant="contained" size="medium" onClick={(e) => handleOnClick(e)}>
-          Send
-        </Button>
+          <Button
+            variant="contained"
+            size="medium"
+            onClick={(e) => handleOnClick(e)}
+          >
+            Send
+          </Button>
         </div>
       </Box>
-      <>
-      {condition? <></> : <Error/>}
-    </>
+      <>{condition ? <></> : <Error />}</>
     </div>
   );
 };
