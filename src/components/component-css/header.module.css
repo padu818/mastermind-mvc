@@ -1,7 +1,21 @@
-.main {
+.header {
   font-size: var(--xm);
   background: var(--style-color);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+  display: flex;
+}
+
+
+.iconRules {
+  color: var(--purple-style);
+  right: 0%;
+}
+
+
+.rules {
+  margin: var(--xm);
+  font-size: var(--xs);
+  color: var(--purple-style);
 }

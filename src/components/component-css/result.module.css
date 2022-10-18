@@ -1,28 +1,59 @@
+.body {
+  background: var(--on-primary-color);
+}
+
+.title {
+  color: var(--purple-style);
+  display: flex;
+  font-size: var(--xs);
+}
+
+.left{
+  padding-right: var(--xs);
+  margin-left: var(--xs);
+  margin-right: var(--xs);
+  left: 0%;
+}
+
+.blackColumn {
+  right: 0%;
+  width: var(--xs);
+  height: var(--xs);
+  padding: var(--xs);
+  border-radius: 50%;
+  border:solid;
+  margin-left: var(--xm);
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+}
+
+.whiteColumn {
+  right: 0%;
+  width: var(--xs);
+  height: var(--xs);
+  padding: var(--xs);
+  margin-left: var(--s);
+  border-radius: 50%;
+  border:solid;
+  border-color: var(--primary-color);
+  background: var(--on-primary-color);
+}
+
 .result {
-  width: 100px;
-  height: 100px;
-  background: red;
-  position: relative;
+  right: 0%;
 }
-.result:before {
-  content: "";
-  width: 100px;
-  height: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom: 29px solid red;
-  border-left: 29px solid #eee;
-  border-right: 29px solid #eee;
-}
-.result:after {
-  content: "";
-  width: 100px;
-  height: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-top: 29px solid red;
-  border-left: 29px solid #eee;
-  border-right: 29px solid #eee;
+
+.element{
+  width: var(--m);
+  height: var(--m);
+  padding: var(--xs);
+  border-radius: 50%;
+  border-color: var(--primary-color);
+  margin-bottom: var(--xs);
+  display: inline-block;
+  margin-right: var(--xs);
+  margin-left: 2px;
+  background: var(--pink-style);
+  color: var(--primary-color);
+  text-align: center;
 }
