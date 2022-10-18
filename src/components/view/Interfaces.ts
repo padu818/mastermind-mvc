@@ -51,3 +51,8 @@ export interface StringParameter {
 export interface ListCombinationParameter {
   listCombination: CombinationView[]
 }
+
+export interface User{
+  username: string,
+  password: string,
+}

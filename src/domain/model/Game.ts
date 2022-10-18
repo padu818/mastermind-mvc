@@ -1,12 +1,16 @@
+import { Id } from '../utils/id';
 import { Board } from './Board';
 import { Combination } from './Combination';
+import { Player } from './Player';
 
 
 export class Game {
 
-  board : Board;
+  private board : Board;
+  private player: Player;
 
-  constructor() {
+  constructor(player: Player) {
+    this.player = player;
     this.board = new Board();
   }
   addMovement(proposeCombination : Combination) {
