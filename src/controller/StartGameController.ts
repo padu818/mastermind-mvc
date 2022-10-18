@@ -5,7 +5,7 @@ import { gameService } from "../domain/services/Game.service";
 
 export class StartGameController {
   private game: Game;
-  private static _instance: StartGameController;
+  
   constructor(game:Game) {
     this.game = game; 
   }
