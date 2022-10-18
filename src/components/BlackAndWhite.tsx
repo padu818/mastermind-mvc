@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { Result } from "./view/Interfaces";
-import { Rectangle } from "./Rectangle";
-
+import { ResultCombination } from "./Result";
+import styles from "./component-css/result.module.css";
 
 export const BlackAndWhite: FC<Result> = ({ black, white }) => {
 
   return (
-    <>
-    <Rectangle value={black}></Rectangle>
-    <Rectangle value={white} ></Rectangle>
-    </>
+    <div className={styles.result}>
+    <ResultCombination value={black} ></ResultCombination>
+    <ResultCombination value={white} ></ResultCombination>
+    </div>
   );
 };

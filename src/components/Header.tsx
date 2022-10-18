@@ -1,7 +1,8 @@
-import { Dialog } from "@mui/material";
+import { Dialog, IconButton } from "@mui/material";
 import { FC, useState } from "react";
 import styles from "./component-css/header.module.css";
 import { GameRules } from "./GameRules";
+import HelpIcon from '@mui/icons-material/Help';
 
 export const Header: FC = () => {
   const [isRulesOpen, setIsRulesOpen] = useState(false);
@@ -12,13 +13,13 @@ export const Header: FC = () => {
 
   return (
     <>
-      <header className={styles.main}>
+      <header className={styles.header}>
         <h1>MASTERMIND</h1>
-        {/*  <div>
+       <div>
         <IconButton title="Game Rules" onClick={handleOnClickRules}>
-            <HelpIcon />
+            <HelpIcon className={styles.iconRules}/>
           </IconButton>
-        </div> */}
+        </div> 
       </header>
       <Dialog
         title="Game Rules"
