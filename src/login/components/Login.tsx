@@ -13,13 +13,13 @@ export const Login: FC<BooleanParameter> = ({ condition, setCondition }) => {
 
   const handleOnClickSingIn = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    <SignIn condition={condition} setCondition={setCondition}/>
+    <SignIn />
   };
 
   
   const handleOnClickSignUp = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    <SignUp condition={condition} setCondition={setCondition}/>
+    <SignUp />
   };
 
   const Error = () => {

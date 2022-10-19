@@ -1,18 +1,22 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField/TextField";
 import Button from "@mui/material/Button/Button";
 import { LoginController } from "../controller/LoginController";
 import { BooleanParameter } from "../utils/interfaces";
 import { CreatorController } from "../controller/CreatorController";
+import { Link } from "react-router-dom";
+import { VIEW_HOME_PATH, VIEW_MASTERMIND_PATH } from "../../config/routing/path";
+import { serviceLogin } from "../../injection/serviceLogin";
 
-export const SignIn: FC<BooleanParameter> = ({ condition, setCondition }) => {
+export const SignIn: FC = () => {
   const loginController: LoginController =
     CreatorController.createLoginController();
+  
+    const [condition, setCondition] = useState(true);
 
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setCondition(!condition);
+  const handleOnClick = () => {
+    serviceLogin.logIn();
   };
 
   const Error = () => {
@@ -49,9 +53,10 @@ export const SignIn: FC<BooleanParameter> = ({ condition, setCondition }) => {
             required={true}
           />
           <Button
+            href={VIEW_HOME_PATH}
             variant="contained"
             size="medium"
-            onClick={(e) => handleOnClick(e)}
+            onClick={handleOnClick}
           >
             Send
           </Button>

@@ -1,19 +1,22 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField/TextField";
 import Button from "@mui/material/Button/Button";
 import { LoginController } from "../controller/LoginController";
 import { BooleanParameter } from "../utils/interfaces";
 import { CreatorController } from "../controller/CreatorController";
+import { VIEW_HOME_PATH } from "../../config/routing/path";
+import { serviceLogin } from "../../injection/serviceLogin";
 
-export const SignUp: FC<BooleanParameter> = ({ condition, setCondition }) => {
+export const SignUp: FC = () => {
   const loginController: LoginController =
     CreatorController.createLoginController();
 
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setCondition(!condition);
-  };
+  const [condition, setCondition] = useState(true);
+
+    const handleOnClick = () => {
+      serviceLogin.logIn();
+    };
 
   const Error = () => {
     return (
@@ -42,23 +45,24 @@ export const SignUp: FC<BooleanParameter> = ({ condition, setCondition }) => {
             required={true}
           />
           <TextField
-            id="outlined-password-input"
+            id="password-input"
             type="password"
             label="Password"
             variant="standard"
             required={true}
           />
           <TextField
-            id="outlined-password-input"
+            id="password-input-repeat"
             type="password"
             label="Repeat password"
             variant="standard"
             required={true}
           />
           <Button
+            href={VIEW_HOME_PATH}
             variant="contained"
             size="medium"
-            onClick={(e) => handleOnClick(e)}
+            onClick={handleOnClick}
           >
             Send
           </Button>
