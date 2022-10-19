@@ -48,6 +48,7 @@
   height: var(--m);
   padding: var(--xs);
   border-radius: 50%;
+  border: solid;
   border-color: var(--primary-color);
   margin-bottom: var(--xs);
   display: inline-block;

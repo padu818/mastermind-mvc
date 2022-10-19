@@ -25,6 +25,7 @@ export const ListMovement: FC<BooleanParameter> = ({ condition }) => {
 
   const PrintListMovement = () => {
     if (listMoveView.length > 0) {
+
       return (
         <div className={styles.body}>
           <TitleResult/>

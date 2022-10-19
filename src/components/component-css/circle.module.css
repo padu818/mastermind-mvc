@@ -3,6 +3,7 @@
   width: var(--m);
   padding: var(--xs);
   border-radius: 50%;
+  border:solid;
   border-color: var(--primary-color);
   display: inline-block;
   margin-right:  5px;

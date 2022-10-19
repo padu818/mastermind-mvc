@@ -2,8 +2,9 @@ import {FC, useState } from "react";
 import { CombinationBreakerController } from "../controller/CombinationBreakerController";
 import { ProposeCombinationParameter } from "./view/Interfaces";
 import { ErrorCombination } from "./Error";
-import styles from '../utils/components/component-css/input.module.css';
+/* import styles from '../utils/components/component-css/input.module.css'; */
 import { Button, TextField } from "@mui/material";
+import styles from "./component-css/circle.module.css";
 import { CreatorController } from "../controller/CreatorController";
 
 export const ProposeCombination: FC<ProposeCombinationParameter> = ({
@@ -62,8 +63,14 @@ export const ProposeCombination: FC<ProposeCombinationParameter> = ({
             className:styles.colorInput,
           }}
         />
-        <Button className={styles.colorInput} onClick={(e) => handleOnClick(e)}>Send</Button>
+        <Button onClick={(e) => handleOnClick(e)}>Send</Button>
       </form>
+      <div>
+        <button className={styles.circle}></button>
+        <button className={styles.circle}></button>
+        <button className={styles.circle}></button>
+        <button className={styles.circle}></button>
+      </div>
       <>{error()}</>
     </div>
   );
